@@ -22,7 +22,8 @@
     "react": "^18",
     "react-dom": "^18",
     "react-move": "^6.5.0",
-    "react-simple-typewriter": "^5.0.1"
+    "react-simple-typewriter": "^5.0.1",
+    "sharp": "^0.33.3"
   },
   "devDependencies": {
     "@types/node": "^20.12.7",
