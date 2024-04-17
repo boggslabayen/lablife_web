@@ -32,19 +32,7 @@ function NavList() {
           Who we are
         </a>
       </Typography>
-      {/* <Typography
-        as="li"
-        variant="lead"
-        color="white"
-        className="p-1 font-medium"
-      >
-        <a
-          href="#"
-          className="flex items-center hover:text-amber-600 transition-colors"
-        >
-          Services
-        </a>
-      </Typography> */}
+
       <Typography as="li" variant="lead" color="white" className="p-2">
         <a
           href="/contact-us"
