@@ -1,112 +1,204 @@
+"use client";
+
 import Image from "next/image";
+import Link from "next/link";
+import { montserrat } from "./ui/fonts";
+import { Typewriter } from "react-simple-typewriter";
+import Brand_Icon from "@/public/images/icons/Branding.svg";
+import Creative from "@/public/images/icons/Creative.svg";
+import Workshop from "@/public/images/icons/Workshop.svg";
+import Modal from "./ui/components/Modal";
+import { useState } from "react";
+import Post from "./ui/components/Post";
+import { eventNames } from "process";
 
 export default function Home() {
+  const [modalIsVisible, setModalIsVisible] = useState(false);
+  const [brandingIsVisible, setBrandingIsVisible] = useState(false);
+  const [creativeIsVisible, setCreativeIsVisible] = useState(false);
+  const [workshopIsVisible, setWorkshopIsVisible] = useState(false);
+
+  function hideModalHandler() {
+    setModalIsVisible(false);
+    setBrandingIsVisible(false);
+    setCreativeIsVisible(false);
+    setWorkshopIsVisible(false);
+  }
+
+  function showBrandinghandler() {
+    setModalIsVisible(true);
+    setBrandingIsVisible(true);
+  }
+
+  function showCreativehandler() {
+    setModalIsVisible(true);
+    setCreativeIsVisible(true);
+  }
+
+  function showWorkshophandler() {
+    setModalIsVisible(true);
+    setWorkshopIsVisible(true);
+  }
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <main className="justify-between">
+      {brandingIsVisible ? (
+        <Modal onClose={hideModalHandler}>
+          <Post
+            ServiceTitle="Branding"
+            ServiceDescription="We help organizations in shaping a positive perception among consumers by guiding them in articulating their brands through  identity and positioning."
+            serviceList1="Brand Visual Identity"
+            serviceList2="Brand Design Guidelines"
+            serviceList3="Taglines"
+            serviceList4="Brand Positioning"
+            onClose={hideModalHandler}
+            serviceList5={undefined}
+          />
+        </Modal>
+      ) : (
+        false
+      )}
+
+      {creativeIsVisible ? (
+        <Modal onClose={hideModalHandler}>
+          <Post
+            ServiceTitle="Creative Production "
+            ServiceDescription="We help organizations in conveying their messages across various creative platforms, spanning from conceptualization to deployment."
+            serviceList1="Content Creation (Narrative / Non-Narrative)"
+            serviceList2="Advertising Campaigns"
+            serviceList3="Music/Jingle Creation"
+            serviceList4="Digital Experiences"
+            serviceList5="Commissioned Art Arrangements"
+            onClose={hideModalHandler}
+          />
+        </Modal>
+      ) : (
+        false
+      )}
+
+      {workshopIsVisible ? (
+        <Modal onClose={hideModalHandler}>
+          <Post
+            ServiceTitle="Bespoke Workshop "
+            ServiceDescription="We empower organizations to enhance their creative prowess through uniquely customized creative workshops."
+            serviceList1="Creative Leadership"
+            serviceList2="Creative Writing"
+            serviceList3="Music Production"
+            onClose={hideModalHandler}
+            serviceList4={undefined}
+            serviceList5={undefined}
+          />
+        </Modal>
+      ) : (
+        false
+      )}
+
+      <div className="bg-lab-purple min-h-80 md:min-h-96 place-content-center">
+        <div>
+          <h1
+            className={`${montserrat.className} text-3xl font-regular text-gray-50 text-center pb-4`}
           >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+            Your <span className="font-black">labteam</span> for
+          </h1>
+        </div>
+        <div
+          className={`${montserrat.className} text-3xl md:text-8xl  font-black text-gray-50 text-center`}
+        >
+          <Typewriter
+            words={["Branding", "Marketing", "Creative Workshops", "Design"]}
+            loop={false}
+            cursorStyle="|"
+            typeSpeed={50}
+            deleteSpeed={10}
+            delaySpeed={1000}
+          />
         </div>
       </div>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+      <div className="max-w-80 md:max-w-screen-lg mx-auto py-16">
+        <div className="">
+          <h3
+            className={`${montserrat.className} text-center font-bold text-3xl md:text-6xl pb-4 text-lab-purple`}
+          >
+            Human connection as the main anchor of your success{" "}
+          </h3>
+
+          <p className={`${montserrat.className} text-center font-medim`}>
+            We are a family of story tellers and creators. Our core is rooted in
+            <span className="font-bold">human centric approach</span>. This is
+            just a sample copy please change
+          </p>
+
+          <div className="flex mx-auto py-8 justify-center">
+            <button
+              className={`${montserrat.className} border-2 border-lab-purple rounded-full px-8 py-3 text-lab-purple font-medium hover:bg-lab-purple hover:text-gray-50`}
+            >
+              <Link href="/about-us">Learn More About us</Link>
+            </button>
+          </div>
+        </div>
       </div>
 
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+      <div className=" bg-lab-yellow">
+        <div className="max-w-80 md:max-w-screen-lg mx-auto py-16">
+          <div className="text-center font-normal text-4xl text-lab-purple">
+            <h5>Our Services</h5>
+          </div>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
+          <div className="pt-16">
+            <div className="grid md:grid-cols-3 gap-8 justify-items-center">
+              {/* Service #1 */}
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
+              <div
+                className="flex flex-col place-items-center"
+                onClick={showBrandinghandler}
+                id="branding"
+              >
+                <Image
+                  src={Brand_Icon}
+                  width={200}
+                  height={200}
+                  alt="brand-icon"
+                />
+                <h3 className="pt-8 font-medium text-2xl">Branding</h3>
+              </div>
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+              {/* Service #2 */}
+
+              <div
+                className="flex flex-col place-items-center"
+                onClick={showCreativehandler}
+                id="branding"
+              >
+                <Image
+                  src={Creative}
+                  width={200}
+                  height={200}
+                  alt="creative-icon"
+                />
+                <h3 className="pt-8 font-medium text-2xl">
+                  Creative Production
+                </h3>
+              </div>
+
+              {/* Service #3 */}
+
+              <div
+                className="flex flex-col place-items-center"
+                onClick={showWorkshophandler}
+                id="branding"
+              >
+                <Image
+                  src={Workshop}
+                  width={200}
+                  height={200}
+                  alt="creative-icon"
+                />
+                <h3 className="pt-8 font-medium text-2xl">Bespoke Workshop</h3>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </main>
   );
