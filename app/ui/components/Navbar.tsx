@@ -1,12 +1,7 @@
 "use client";
 
 import React from "react";
-import {
-  Navbar,
-  Collapse,
-  Typography,
-  IconButton,
-} from "@material-tailwind/react";
+import { Navbar, Collapse, IconButton } from "@material-tailwind/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import whiteLogo from "@/public/images/white_logo.png";
 import Image from "next/image";
@@ -15,32 +10,22 @@ import Link from "next/link";
 function NavList() {
   return (
     <ul className="my-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
-      <Typography
-        as="li"
-        variant="lead"
-        color="white"
-        className="p-2"
-        children={undefined}
-        placeholder={undefined}
-        onPointerEnterCapture={undefined}
-        onPointerLeaveCapture={undefined}
-      >
+      <li>
         <a
           href="/about-us"
           className="flex items-center hover:text-amber-600 transition-colors"
         >
           Who we are
         </a>
-      </Typography>
-
-      <Typography as="li" variant="lead" color="white" className="p-2">
+      </li>
+      <li>
         <a
           href="/contact-us"
           className="flex items-center hover:text-amber-600 transition-colors"
         >
           Contact Us
         </a>
-      </Typography>
+      </li>
     </ul>
   );
 }
