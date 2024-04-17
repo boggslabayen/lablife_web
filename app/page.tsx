@@ -7,12 +7,13 @@ import { Typewriter } from "react-simple-typewriter";
 import Brand_Icon from "@/public/images/icons/Branding.svg";
 import Creative from "@/public/images/icons/Creative.svg";
 import Workshop from "@/public/images/icons/Workshop.svg";
-import Modal from "./ui/components/Modal";
+
 import { useState } from "react";
-import Post from "./ui/components/Post";
+
 import { eventNames } from "process";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faX } from "@fortawesome/free-solid-svg-icons";
+import classes from "@/app/ui/components/Module.module.css";
 
 export default function Home() {
   const [modalIsVisible, setModalIsVisible] = useState(false);
@@ -45,142 +46,150 @@ export default function Home() {
   return (
     <main className="justify-between">
       {brandingIsVisible ? (
-        <Modal onClose={hideModalHandler}>
-          <div className="bg-lab-yellow p-8 md:min-w-80">
-            <div className="flex justify-between content-center">
+        <div className={classes.backdrop}>
+          <dialog open className={classes.modal}>
+            <div className="bg-lab-yellow p-8 md:min-w-80">
+              <div className="flex justify-between content-center">
+                <div>
+                  <h3 className="text-xl md:text-3xl font-bold py-4">
+                    Branding
+                  </h3>
+                </div>
+                <div
+                  className="text-lab-purple pb-2 text-end text-4xl content-center"
+                  onClick={hideModalHandler}
+                >
+                  <FontAwesomeIcon icon={faX} />
+                </div>
+              </div>
+
               <div>
-                <h3 className="text-xl md:text-3xl font-bold py-4">Branding</h3>
+                <p className="text-sm leading-relaxed md:text-xl md:leading-10">
+                  We help organizations in shaping a positive perception among
+                  consumers by guiding them in articulating their brands through
+                  identity and positioning.
+                </p>
               </div>
-              <div
-                className="text-lab-purple pb-2 text-end text-4xl content-center"
-                onClick={hideModalHandler}
-              >
-                <FontAwesomeIcon icon={faX} />
+
+              <div className="pt-8">
+                <ul className="list-none">
+                  <li className="md:text-xl text-md pb-4 font-medium pl-4">
+                    Brand Visual Identity
+                  </li>
+                  <li className="md:text-xl text-md pb-4 font-medium pl-4">
+                    Brand Design Guidelines
+                  </li>
+                  <li className="md:text-xl text-md pb-4 font-medium pl-4">
+                    Brand Positioning
+                  </li>
+                  <li className="md:text-xl text-md pb-4 font-medium pl-4">
+                    Brand Essence
+                  </li>
+                  <li className="md:text-xl text-md pb-4 font-medium pl-4">
+                    Brand Taglines
+                  </li>
+                </ul>
               </div>
             </div>
-
-            <div>
-              <p className="text-sm leading-relaxed md:text-xl md:leading-10">
-                We help organizations in shaping a positive perception among
-                consumers by guiding them in articulating their brands through
-                identity and positioning.
-              </p>
-            </div>
-
-            <div className="pt-8">
-              <ul className="list-none">
-                <li className="md:text-xl text-md pb-4 font-medium pl-4">
-                  Brand Visual Identity
-                </li>
-                <li className="md:text-xl text-md pb-4 font-medium pl-4">
-                  Brand Design Guidelines
-                </li>
-                <li className="md:text-xl text-md pb-4 font-medium pl-4">
-                  Brand Positioning
-                </li>
-                <li className="md:text-xl text-md pb-4 font-medium pl-4">
-                  Brand Essence
-                </li>
-                <li className="md:text-xl text-md pb-4 font-medium pl-4">
-                  Brand Taglines
-                </li>
-              </ul>
-            </div>
-          </div>
-        </Modal>
+          </dialog>
+        </div>
       ) : (
         false
       )}
 
       {creativeIsVisible ? (
-        <Modal onClose={hideModalHandler}>
-          <div className="bg-lab-yellow p-8 md:min-w-80">
-            <div className="flex justify-between content-center">
+        <div className={classes.backdrop}>
+          <dialog open className={classes.modal}>
+            <div className="bg-lab-yellow p-8 md:min-w-80">
+              <div className="flex justify-between content-center">
+                <div>
+                  <h3 className="text-xl md:text-3xl font-bold py-4">
+                    Creative Production
+                  </h3>
+                </div>
+                <div
+                  className="text-lab-purple pb-2 text-end text-4xl content-center"
+                  onClick={hideModalHandler}
+                >
+                  <FontAwesomeIcon icon={faX} />
+                </div>
+              </div>
+
               <div>
-                <h3 className="text-xl md:text-3xl font-bold py-4">
-                  Creative Production
-                </h3>
+                <p className="text-sm leading-relaxed md:text-xl md:leading-10">
+                  We help organizations in conveying their messages across
+                  various creative platforms, spanning from conceptualization to
+                  deployment.
+                </p>
               </div>
-              <div
-                className="text-lab-purple pb-2 text-end text-4xl content-center"
-                onClick={hideModalHandler}
-              >
-                <FontAwesomeIcon icon={faX} />
+
+              <div className="pt-8">
+                <ul className="list-none">
+                  <li className="md:text-xl text-md pb-4 font-medium pl-4">
+                    Content Creation (Narrative / Non-Narrative)
+                  </li>
+                  <li className="md:text-xl text-md pb-4 font-medium pl-4">
+                    Advertising Campaigns
+                  </li>
+                  <li className="md:text-xl text-md pb-4 font-medium pl-4">
+                    Music/Jingle Creation
+                  </li>
+                  <li className="md:text-xl text-md pb-4 font-medium pl-4">
+                    Digital Experiences
+                  </li>
+                  <li className="md:text-xl text-md pb-4 font-medium pl-4">
+                    Commissioned Art Arrangements
+                  </li>
+                </ul>
               </div>
             </div>
-
-            <div>
-              <p className="text-sm leading-relaxed md:text-xl md:leading-10">
-                We help organizations in conveying their messages across various
-                creative platforms, spanning from conceptualization to
-                deployment.
-              </p>
-            </div>
-
-            <div className="pt-8">
-              <ul className="list-none">
-                <li className="md:text-xl text-md pb-4 font-medium pl-4">
-                  Content Creation (Narrative / Non-Narrative)
-                </li>
-                <li className="md:text-xl text-md pb-4 font-medium pl-4">
-                  Advertising Campaigns
-                </li>
-                <li className="md:text-xl text-md pb-4 font-medium pl-4">
-                  Music/Jingle Creation
-                </li>
-                <li className="md:text-xl text-md pb-4 font-medium pl-4">
-                  Digital Experiences
-                </li>
-                <li className="md:text-xl text-md pb-4 font-medium pl-4">
-                  Commissioned Art Arrangements
-                </li>
-              </ul>
-            </div>
-          </div>
-        </Modal>
+          </dialog>
+        </div>
       ) : (
         false
       )}
 
       {workshopIsVisible ? (
-        <Modal onClose={hideModalHandler}>
-          <div className="bg-lab-yellow p-8 md:min-w-80">
-            <div className="flex justify-between content-center">
+        <div className={classes.backdrop}>
+          <dialog open className={classes.modal}>
+            <div className="bg-lab-yellow p-8 md:min-w-80">
+              <div className="flex justify-between content-center">
+                <div>
+                  <h3 className="text-xl md:text-3xl font-bold py-4">
+                    Bespoke Workshop
+                  </h3>
+                </div>
+                <div
+                  className="text-lab-purple pb-2 text-end text-4xl content-center"
+                  onClick={hideModalHandler}
+                >
+                  <FontAwesomeIcon icon={faX} />
+                </div>
+              </div>
+
               <div>
-                <h3 className="text-xl md:text-3xl font-bold py-4">
-                  Bespoke Workshop
-                </h3>
+                <p className="text-sm leading-relaxed md:text-xl md:leading-10">
+                  We empower organizations to enhance their creative prowess
+                  through uniquely customized creative workshops.
+                </p>
               </div>
-              <div
-                className="text-lab-purple pb-2 text-end text-4xl content-center"
-                onClick={hideModalHandler}
-              >
-                <FontAwesomeIcon icon={faX} />
+
+              <div className="pt-8">
+                <ul className="list-none">
+                  <li className="md:text-xl text-md pb-4 font-medium pl-4">
+                    Creative Leadership
+                  </li>
+                  <li className="md:text-xl text-md pb-4 font-medium pl-4">
+                    Creative Writing
+                  </li>
+                  <li className="md:text-xl text-md pb-4 font-medium pl-4">
+                    Music Production
+                  </li>
+                </ul>
               </div>
             </div>
-
-            <div>
-              <p className="text-sm leading-relaxed md:text-xl md:leading-10">
-                We empower organizations to enhance their creative prowess
-                through uniquely customized creative workshops.
-              </p>
-            </div>
-
-            <div className="pt-8">
-              <ul className="list-none">
-                <li className="md:text-xl text-md pb-4 font-medium pl-4">
-                  Creative Leadership
-                </li>
-                <li className="md:text-xl text-md pb-4 font-medium pl-4">
-                  Creative Writing
-                </li>
-                <li className="md:text-xl text-md pb-4 font-medium pl-4">
-                  Music Production
-                </li>
-              </ul>
-            </div>
-          </div>
-        </Modal>
+          </dialog>
+        </div>
       ) : (
         false
       )}
